@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.14)
+project(Galaga_enC C)
+set(CMAKE_C_STANDARD 99)
+
+add_executable(Galaga_enC main.c)
+add_executable(Menu menu/Instruccion.c menu/Instruccion.h menu/menu.h)
+add_executable(pantalla interfaz/Inte_color_fondo.c interfaz/Inte_color_fondo.h)
