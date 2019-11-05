@@ -7,7 +7,6 @@ void menu();
 void juego();
 void configuraciones();
 void calificaciones();
-void instrucciones();
 void salir();
 void limpiar();
 void datos();
