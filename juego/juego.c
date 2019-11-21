@@ -8,9 +8,9 @@ void Game_Play()
     char world[sizey][sizex];
     char player = 'A';
     char playerLaser = '^';
-    char enemy = 'M';
+    char enemy = 'W';
     char enemyShielded = 'O';
-    char enemyLaser = 'U';
+    char enemyLaser = 'V';
     char explosion = 'X';
     int score = 0;
     int victory = 1;
