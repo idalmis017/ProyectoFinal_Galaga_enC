@@ -22,18 +22,21 @@ void inicio(){
                "\n\t\t------------------------"
                "\n\t\t|2 -      Salir         |"
                "\n\t\t------------------------");
-        scanf("%c",opcion);
+        scanf("%c",&opcion);
         switch(opcion){
             case '1':
+                fflush(stdin);
                 menu_principal();
                 break;
             case '2':
+                fflush(stdin);
                 salir();
                 break;
             default:
                 printf("La opcion ingresada no esta contenida en el men%c\n\tPor favor digite una de las mencionadas anteriormente");
                 break;
         }
+        fflush(stdin);
         system("pause");
         limpiar();
     }while(opcion!=1 && opcion !=2);
@@ -47,6 +50,7 @@ void limpiar(){
 void menu_principal(){
     char opcion;
     do{
+
         printf("\n\t"
                "*----------------------*\n\t"
                "|1 - Inicio            |\n\t"
@@ -61,24 +65,30 @@ void menu_principal(){
                "------------------------\n\t"
                "|6 - Salir             |\n\t"
                "*----------------------*\n\t");
-        scanf("%c",opcion);
+        scanf("%c",&opcion);
         switch(opcion){
             case '1':
+                fflush(stdin);
                 juego();
                 break;
             case '2':
+                fflush(stdin);
                 calificaciones();
                 break;
             case '3':
+                fflush(stdin);
                 como_jugar();
                 break;
             case '4':
+                fflush(stdin);
                 configuraciones();
                 break;
             case '5':
+                fflush(stdin);
                 intrucc();
                 break;
             case '6':
+                fflush(stdin);
                 salir();
                 break;
             default:
@@ -110,12 +120,14 @@ void intrucc(){
                "\t|        Game: Videojuego de un jugador. Videojuego multijugador             |\n"
                "\t------------------------------------------------------------------------------\n");
         printf("\n\n 1-VOLVER AL MENU PRINCIPAL                               2-SALIR DEL JUEGO");
-        scanf("%c",opcion);
+        scanf("%c",&opcion);
         switch(opcion){
             case '1':
+                fflush(stdin);
                 menu_principal();
                 break;
             case '2':
+                fflush(stdin);
                 salir();
                 break;
             default:
@@ -159,12 +171,14 @@ void como_jugar(){
                "\t|    la  tabla de puntuaciones del juego.                                      |\n"
                "\t------------------------------------------------------------------------------\n");
         printf("\n\n 1-VOLVER AL MENU PRINCIPAL                               2-SALIR DEL JUEGO");
-        scanf("%c",opcion);
+        scanf("%c",&opcion);
         switch(opcion){
             case '1':
+                fflush(stdin);
                 menu_principal();
                 break;
             case '2':
+                fflush(stdin);
                 salir();
                 break;
             default:
@@ -178,9 +192,54 @@ void como_jugar(){
 }
 
 void calificaciones(){
+    //Esta funcion  se esta desempeñando aparte y sera una de las ultimas, se creo la estructura
+    //Jugardor (jgdr), para ir almancenando todos los datos del jugador si este lo desea en un file.
 
 }
 void configuraciones(){
+    int color;
+    printf("Configuraciones de pantalla");
+    do{
+        printf("Combinaciones de colores: \n"
+               " _______________________________________"
+               "|  Opcion ----- Pantalla-----  Texto    |\n"
+               "|_______________________________________|"
+               "|    1   ------- Blanco ----  Agua      |\n"
+               "|    2   ------- Azul  -----  Amarillo  |\n"
+               "|    3   ------- Rojo  -----  Negro     |\n"
+               "|    4   ------- Gris  -----  Azul      |\n"
+               "|    5   -----  Purpura ----  Verde     |\n"
+               "|_______________________________________|\n\n");
+        scanf("%d",&color);
+        switch (color){
+            case 1 :
+                fflush(stdin);
+                system("color 7B ");
+                break;
+            case 2 :
+                fflush(stdin);
+                system("color 1E");
+                break;
+            case 3:
+                fflush(stdin);
+                system("color 40");
+                break;
+            case 4:
+                fflush(stdin);
+                system("color 81");
+            case 5:
+                fflush(stdin);
+                system("color D2");
+
+            default:
+                printf("No existe esa combinacion");
+                break;
+
+        }
+        limpiar();
+    }while(color<1 && color>6);
+
+
 
 }
 
