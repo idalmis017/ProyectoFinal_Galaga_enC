@@ -8,4 +8,4 @@
 #define GALAGA_ENC_JUEGO_H
 
 #endif //GALAGA_ENC_JUEGO_H
-void juego();
+void Game_Play();
