@@ -163,10 +163,11 @@ void como_jugar(){
                "\t|    Las naves escudadas (las que se presenten con un cuadrado negro ),        |\n"
                "\t|    se eliminan al dispararle 2 veces.                                        |\n"
                "\t|    Al eliminar una nave obtienes    ...                50 puntos             |\n"
-               "\t|    Si te eliminan pero sobrepasas los 500 puntos, puedes obtar por el        |\n"
+               "\t|    Si te eliminan pero sobrepasas los 1500 puntos, puedes obtar por el        |\n"
                "\t|    NIVEL BONUS, donde tendras la opotunidad de eliminar a las nave madre,    |\n"
                "\t|    estas poseen unos fuertes escudos y solo las eliminas al dispararle 5     |\n"
-               "\t|    veces.Cada nave madre eliminada, te da 150 pts en tu puntuacion final     |\n"
+               "\t|    veces.Cada nave madre eliminada, te da 150 pts en tu puntuacion final.    |\n"
+               "\t|    Ganas al completar una puntuacion de 3750 puntos                          |\n"
                "\t|    Al terminar o ser eliminado, puedes guardar tus datos para añadirte a     |\n"
                "\t|    la  tabla de puntuaciones del juego.                                      |\n"
                "\t------------------------------------------------------------------------------\n");
@@ -240,6 +241,30 @@ void configuraciones(){
     }while(color<1 && color>6);
 
 
+}
+
+
+void datos(){
+    jgdr nuevo;
+    printf("\t---------------------------");
+    printf("\t %cR E G I S T R A T E!");
+    printf("\t---------------------------");
+    printf("\n");
+    printf("\tNombre: ");gets(nuevo.nombre);
+    printf("\n\n");
+    printf("\tEdad: ");gets(nuevo.edad);
+    printf("\n\n");
+    fflush(stdin);
+    printf("\tNacionalidad: ");gets(nuevo.nacionalidad);
+    printf("\n\n");
+    printf("\tDigita el ID de tu preferencia: ");gets(nuevo.id);
+    printf("\n\n");
+
+    printf("\t---------------------------");
+    printf("\t %cL I S T O!");
+    printf("\t---------------------------");
+    limpiar();
+    menu();
 
 }
 

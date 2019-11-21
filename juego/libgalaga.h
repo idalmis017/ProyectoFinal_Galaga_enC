@@ -18,6 +18,7 @@ typedef struct Jugador{
     char*puntuacion;
 
 }jgdr;
+void datos();
 void inicio();
 void como_jugar();
 void menu_principal();

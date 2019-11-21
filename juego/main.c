@@ -2,6 +2,6 @@
 #include "juego.h"
 
 int main() {
-    inicio();
+    Game_Play();
     return 0;
 }
