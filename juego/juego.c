@@ -71,7 +71,7 @@ void Game_Play()
 
         for (y = 0; y < sizey; y ++)
         {
-            //Imprime el outline (limites o extremos) del juego
+            //Imprime el juego
             printf("|");
             for (x = 0; x < sizex; x ++)
             {
@@ -88,11 +88,13 @@ void Game_Play()
             {
                 if (i%2 == 0 && world[y][x] == enemyLaser && (world[y+1][x] != enemy & world[y+1][x] != enemyShielded))
                 {
+                    //Mueve el lazer del enemigo hacia abajo y se asegura de que solo los enemigos de la linea de abajo puedan atacar
                     world[y+1][x] = enemyLaser;
                     world[y][x] = ' ';
                 }
                 else if (i%2 == 0 && world[y][x] == enemyLaser && (world[y+1][x] == enemy | world[y+1][x] == enemyShielded))
                 {
+                    //Borra los lazer enemigos si choca contra otro enemigo
                     world[y][x] = ' ';
                 }
             }
@@ -102,10 +104,12 @@ void Game_Play()
         {
             for (y = 0; y < sizey; y ++)
             {
+                //Evalua si el enemigo puede disparar
                 if ((i % 5) == 0 && (world[y][x] == enemyShielded | world[y][x] == enemy) && (rand() % 15) > 13 && world[y+1][x] != playerLaser)
                 {
                     for (yi = y+1; yi < sizey; yi ++)
                     {
+                        //No le permite disparar al enimigo si tiene otra nave enemiga en frente
                         if (world[yi][x] == enemy | world[yi][x] == enemyShielded)
                         {
                             enemyReady = 0;
@@ -113,6 +117,7 @@ void Game_Play()
                         }
                         enemyReady = 1;
                     }
+                    //Si no tiene naves enemigas entonces dispara
                     if (enemyReady)
                     {
                         world[y+1][x] = enemyLaser;
@@ -180,7 +185,7 @@ void Game_Play()
             }
         }
 
-        //Actualiza la pantalla de juego
+        //Actualiza la posicion de los enemigos
         if (i % enemySpeed == 0)
         {
             if (direction == 'l')
@@ -191,11 +196,13 @@ void Game_Play()
                     {
                         if (drop && (world[y-1][x+1] == enemy || world[y-1][x+1] == enemyShielded))
                         {
+                            //Los enemigos bajan y se mueven a la direccion mostrada (izquierda)
                             world[y][x] = world[y-1][x+1];
                             world[y-1][x+1] = ' ';
                         }
                         else if (!drop && (world[y][x+1] == enemy || world[y][x+1] == enemyShielded))
                         {
+                            //Solo se mueve a la direccion indicada (izquierda)
                             world[y][x] = world[y][x+1];
                             world[y][x+1] = ' ';
                         }
@@ -210,11 +217,13 @@ void Game_Play()
                     {
                         if (drop && (world[y-1][x-1] == enemy || world[y-1][x-1] == enemyShielded))
                         {
+                            //Los enemigos bajan y se mueven a la direccion mostrada (derecha)
                             world[y][x] = world[y-1][x-1];
                             world[y-1][x-1] = ' ';
                         }
                         else if (!drop && (world[y][x-1] == enemy || world[y][x-1] == enemyShielded))
                         {
+                            //Solo se mueve a la direccion indicada (derecha)
                             world[y][x] = world[y][x-1];
                             world[y][x-1] = ' ';
                         }
@@ -223,6 +232,7 @@ void Game_Play()
             }
             for (x = 0; x < sizex; x ++)
             {
+                //Actualiza la condicion de victoria
                 if (world[sizey - 1][x] == enemy)
                 {
                     victory = 0;
