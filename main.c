@@ -1,6 +1,7 @@
-#include <stdio.h>
+#include "libgalaga.h"
+#include "juego.h"
 
 int main() {
-    printf("Hello, World!\n");
+    inicio();
     return 0;
 }
