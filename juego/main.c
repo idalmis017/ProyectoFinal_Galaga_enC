@@ -1,7 +1,7 @@
 #include "libgalaga.h"
-#include "juego.h"
+#include "libgalaga.h"
 
 int main() {
-    Game_Play();
+    inicio();
     return 0;
 }

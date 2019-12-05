@@ -10,16 +10,15 @@
 #include<conio.h>
 #include<direct.h>
 
-typedef struct Jugador{
-    char* id;
-    char* nombre;
-    char* edad;
-    char* nacionalidad;
-    char*puntuacion;
 
-}jgdr;
-void datos();
+typedef struct JUGADOR{
+    char nombre[20];
+    int puntuacion;
+    float tiempo;
+}jugador;
+
 void inicio();
+void juego();
 void como_jugar();
 void menu_principal();
 void limpiar();
@@ -27,4 +26,8 @@ void salir();
 void configuraciones();
 void calificaciones();
 void intrucc();
-
+void nuevo(jugador jgdr, float TiempoTranscurrido, int score);
+int obtener_archivo(jugador jdr);
+int mostrar_archivo();
+void ExtraLevel(int extrascore, float extratime, int extraenemies, jugador jdr);
+void Final_Juego(int victory, int score, int EnemiesDisplay, float TiempoTranscurrido, int choice, jugador jdr);
